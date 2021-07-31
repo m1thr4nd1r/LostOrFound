@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 using UnityEngine.UI;
 
 public class PlayerBehavior : MonoBehaviour
@@ -13,7 +13,7 @@ public class PlayerBehavior : MonoBehaviour
 
     bool _firstLightActivation;
     Camera _camera;
-    Light2D _light2D;
+    UnityEngine.Rendering.Universal.Light2D _light2D;
     Sprite _chosenSprite;
     AudioSource _fireSpell;
 
@@ -49,7 +49,7 @@ public class PlayerBehavior : MonoBehaviour
         _chosenSprite = _generator.GetSprite();
 
         _firstLightActivation = true;
-        _light2D = _camera.GetComponent<Light2D>();
+        _light2D = _camera.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         _fireSpell = GetComponent<AudioSource>();
         var spriteRenders = GetComponentsInChildren<SpriteRenderer>();
         spriteRenders[spriteRenders.Length - 1].sprite = _chosenSprite;
